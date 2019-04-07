@@ -34,18 +34,30 @@ export function Timer() {
 }
 
 function timer() {
-	const deadline = new Date(WEDDING_DATE).getTime();
+	const weddingDate = new Date(WEDDING_DATE).getTime();
 	const now = new Date().getTime();
-	const difference = deadline - now;
-	const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-	const hours = Math.floor((difference%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-	const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-	const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+	const difference = weddingDate > now ? weddingDate - now : now - weddingDate;
 
 	return {
-		days: days,
-		hours: hours,
-		minutes: minutes,
-		seconds: seconds,
+		days: getDays(difference),
+		hours: getHours(difference),
+		minutes: getMinutes(difference),
+		seconds: getSeconds(difference),
 	}
+}
+
+function getDays(time: number) {
+    return Math.floor(time / (1000 * 60 * 60 * 24));
+}
+
+function getHours(time: number) {
+    return Math.floor((time%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+}
+
+function getMinutes(time: number) {
+    return Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+}
+
+function getSeconds(time: number) {
+    return Math.floor((time % (1000 * 60)) / 1000);
 }
