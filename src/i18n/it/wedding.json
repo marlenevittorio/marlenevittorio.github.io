@@ -1,0 +1,12 @@
+{
+  "wedding": {
+    "celebrate": "Vieni al nostro matrimonio",
+    "when": "Venerdí, 30 Agosto, 2019 16.30",
+    "where": {
+      "receptionTitle": "Ricevimento",
+      "churchTitle": "Messa",
+      "church": "Badia San Salvatore, Vaiano - Italia",
+      "reception": "Villa Il Mulinaccio, Vaiano - Italia"
+    }
+  }
+}

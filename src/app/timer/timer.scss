@@ -1,0 +1,41 @@
+
+.timer {
+    font-family: Roboto-light;
+    color: $color-grey;
+}
+
+.header, .time {
+    justify-content: center;
+    display: flex;
+
+    div {
+        text-align: center;
+        flex: 1;
+    }
+}
+
+.header {
+    font-size: 16px;
+
+    @include media-mobile {
+        font-size: 22px;
+    }
+
+    @include media-large {
+        font-size: 30px;
+    }
+}
+
+.time {
+    margin-top: 5px;
+    font-size: 30px;
+
+    @include media-mobile {
+        margin-top: 10px;
+        font-size: 50px;
+    }
+
+    @include media-large {
+        font-size: 60px;
+    }
+}

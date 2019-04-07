@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    height: 2px;
+    background-color: $color-grey-light;
+    width: 40px;
+    box-sizing: border-box;
+    padding: 0 20px;
+
+    @include media-mobile {
+        flex: 1;
+    }
+
+    @include media-large {
+        padding: 0;
+        flex: 2;
+    }
+}
+
+.link {
+    cursor: pointer;
+    font-family: 'Roboto-Medium';
+    font-size: 14px;
+    color: $color-grey;
+    text-align: center;
+    text-transform: uppercase;
+    flex: 1;
+
+    @include media-mobile {
+        font-size: 16px;
+    }
+
+    @include media-large {
+        font-size: 18px;
+    }
+}
