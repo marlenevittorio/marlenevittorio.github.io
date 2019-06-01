@@ -14,10 +14,24 @@ export function Menu(props: MenuProps) {
 			type: SELECTED_ACTION_TYPE.WEDDING
 		})
 	}
+
+    function goToRegistry() {
+        props.dispatch({
+            type: SELECTED_ACTION_TYPE.REGISTRY
+        })
+    }
 	return <div className={styles.container}>
 		<div className={styles.line}/>
-		<div className={styles.link}> <TranslateComponent t={'menu.home'}/> </div>
-		<div onClick={goToWedding} className={styles.link}> <TranslateComponent t={'menu.wedding'}/></div>
+		<div className={styles.link}>
+            <TranslateComponent t={'menu.home'}/>
+		</div>
+		<div onClick={goToWedding} className={styles.link}>
+            <TranslateComponent t={'menu.wedding'}/>
+		</div>
+
+        <div onClick={goToRegistry} className={styles.link}>
+            <TranslateComponent t={'menu.registry'}/>
+        </div>
 		<div className={styles.line}/>
 	</div>
 }

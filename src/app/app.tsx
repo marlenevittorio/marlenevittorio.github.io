@@ -4,7 +4,8 @@ import * as styles  from "./app.scss";
 import Menu from "./menu/menu";
 import { ImageCouple } from "./imageCouple/imageCouple";
 import { Timer } from "./timer/timer";
-import Wedding from "./wedding/wedding";
+import { Wedding } from "./wedding/wedding";
+import { Gift } from './gift/gift';
 
 export function App(): JSX.Element {
     return (
@@ -24,6 +25,9 @@ export function App(): JSX.Element {
                 </div>
                 <div className={styles.intro}>
                     <Wedding/>
+                </div>
+                <div className={styles.gifts}>
+                    <Gift/>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 export enum SELECTED_ACTION_TYPE {
 	NONE = 'NONE',
 	WEDDING = 'WEDDING',
+	REGISTRY = 'REGISTRY',
 }

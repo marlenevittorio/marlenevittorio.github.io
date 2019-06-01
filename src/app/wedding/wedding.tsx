@@ -1,42 +1,13 @@
 import * as React from "react";
-import { useEffect, useRef } from "react";
 import * as styles from "./wedding.scss";
 import { TranslateComponent } from "../../shared/translate/translate";
 import { GoogleMap } from "../googleMap/googleMap";
-import { Maps } from "../googleMap/maps";
-import { connect } from "react-redux";
-import { SelectedPage, WeddingStore } from "../store/store";
-import { SelectedAction } from "../store/action";
-import { Dispatch } from "redux";
-import { SELECTED_ACTION_TYPE } from "../store/actionType";
+import { SelectedPage } from "../store/store";
+import ScrollIntoView from '../scrollIntoView/scrollIntoView';
+import { Maps } from '../googleMap/maps';
 
-export interface WeddingProps extends WeddingMapProps {
-	selected: SelectedPage
-	dispatch: Dispatch<SelectedAction>
-}
-
-interface WeddingMapProps {
-	selected: SelectedPage
-}
-
-export function Wedding(props: WeddingProps) {
-	const container = useRef(null);
-
-	useEffect(() => {
-		const isSelected = props.selected === SelectedPage.Wedding;
-		if (isSelected) {
-			container.current.scrollIntoView({
-				behavior: 'smooth',
-				inline: 'center',
-			});
-
-			props.dispatch({
-				type: SELECTED_ACTION_TYPE.NONE
-			})
-		}
-	}, [props.selected]);
-
-	return <div ref={container}>
+export function Wedding() {
+	return <ScrollIntoView selectedPage={SelectedPage.Wedding}>
 		<div className={styles.text}>
 			<TranslateComponent t={'wedding.celebrate'}/>
 		</div>
@@ -72,13 +43,5 @@ export function Wedding(props: WeddingProps) {
                 </div>
 			</div>
 		</div>
-	</div>
+    </ScrollIntoView>
 }
-
-function mapStateToProps(state: WeddingStore): WeddingMapProps {
-	return {
-		selected: state.selectedPage,
-	};
-}
-
-export default connect(mapStateToProps)(Wedding);
