@@ -1,8 +1,10 @@
 /*globals require, module */
 const root = require('../root/root'),
     webpackMerge = require('webpack-merge'),
-    commonConfig = require('./webpack.common.js'),
-    CleanWebpackPlugin = require('clean-webpack-plugin');
+    commonConfig = require('./webpack.common.js');
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 module.exports = webpackMerge(commonConfig('LOCAL'), {
     mode: "production",

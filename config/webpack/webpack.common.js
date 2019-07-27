@@ -1,7 +1,6 @@
 /*globals require, module */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const root = require('../root/root');
-const webpack = require('webpack');
 const WebpackMergeJsonsPlugin = require("webpack-merge-jsons-plugin");
 const WebpackCopyPlugin = require('copy-webpack-plugin');
 
@@ -26,8 +25,10 @@ module.exports = function(env) {
                             loader: 'css-loader',
                             options: {
                                 importLoaders: 1,
-                                modules: true,
-                                localIdentName: "[name]__[local]___[hash:base64:5]"
+                                modules: {
+                                    mode: 'local',
+                                    localIdentName: "[name]__[local]___[hash:base64:5]"
+                                }
                             },
                         },
                         {
