@@ -8,6 +8,7 @@ import { Wedding } from "./wedding/wedding";
 import { Gift } from './gift/gift';
 
 export function App(): JSX.Element {
+
     return (
         <div className={styles.container}>
             <div className={styles.background}>
