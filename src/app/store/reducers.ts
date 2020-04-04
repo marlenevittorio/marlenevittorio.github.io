@@ -10,8 +10,8 @@ export default function selectedReducers(state: SelectedPage = getDefaultState()
     switch (action.type) {
         case SELECTED_ACTION_TYPE.WEDDING:
             return SelectedPage.Wedding;
-        case SELECTED_ACTION_TYPE.REGISTRY:
-            return SelectedPage.Registry;
+        case SELECTED_ACTION_TYPE.IMAGES:
+            return SelectedPage.Images;
         case SELECTED_ACTION_TYPE.NONE:
             return SelectedPage.None;
         default:

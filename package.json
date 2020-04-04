@@ -28,6 +28,7 @@
     "raw-loader": "3.1.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
+    "react-grid-gallery": "^0.5.5",
     "react-i18next": "10.11.4",
     "react-redux": "7.1.0",
     "redux": "4.0.4",
@@ -44,5 +45,8 @@
   },
   "author": "Vittorio Guerriero",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "react-images": "^1.1.0",
+    "react-photo-gallery": "^8.0.0"
+  }
 }

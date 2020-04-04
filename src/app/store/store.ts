@@ -3,8 +3,8 @@ import reducers from './reducers';
 
 export enum SelectedPage {
   None,
+  Images,
   Wedding,
-  Registry,
 }
 export interface WeddingStore {
   selectedPage: SelectedPage;

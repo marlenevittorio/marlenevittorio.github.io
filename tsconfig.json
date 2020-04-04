@@ -7,6 +7,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noUnusedParameters": true,
+    "esModuleInterop": true,
     "noUnusedLocals": true,
     "removeComments": false,
     "noImplicitAny": true,

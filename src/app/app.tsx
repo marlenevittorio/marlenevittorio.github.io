@@ -1,13 +1,21 @@
 import * as React from 'react';
 import { Title } from "./title/title";
-import * as styles  from "./app.scss";
+import * as styles from "./app.scss";
 import Menu from "./menu/menu";
 import { ImageCouple } from "./imageCouple/imageCouple";
 import { Timer } from "./timer/timer";
 import { Wedding } from "./wedding/wedding";
-import { Gift } from './gift/gift';
+import { connect } from 'react-redux';
+import { SelectedPage, WeddingStore } from './store/store';
+import { Images } from './images/images';
 
-export function App(): JSX.Element {
+interface AppProps {
+    selectedPage: SelectedPage;
+}
+function App(props: AppProps): JSX.Element {
+    if (props.selectedPage === SelectedPage.Images) {
+        return <Images/>
+    }
 
     return (
         <div className={styles.container}>
@@ -27,10 +35,11 @@ export function App(): JSX.Element {
                 <div className={styles.intro}>
                     <Wedding/>
                 </div>
-                <div className={styles.gifts}>
-                    <Gift/>
-                </div>
             </div>
         </div>
     );
 }
+
+const mapStateToProps = ({ selectedPage }: WeddingStore) => ({selectedPage});
+
+export const AppComponent =  connect(mapStateToProps)(App);

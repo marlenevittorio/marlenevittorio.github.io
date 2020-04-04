@@ -69,6 +69,10 @@ module.exports = function(env) {
                 dest: 'i18n/en.json'
             }),
             new WebpackMergeJsonsPlugin({
+                src: 'src/i18n/en/*.json',
+                dest: 'i18n/en-GB.json'
+            }),
+            new WebpackMergeJsonsPlugin({
                 src: 'src/i18n/it/*.json',
                 dest: 'i18n/it.json'
             }),
