@@ -62,7 +62,8 @@ module.exports = function(env) {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: 'src/main.html'
+                template: 'src/main.html',
+                minify: false
             }),
             new WebpackMergeJsonsPlugin({
                 src: 'src/i18n/en/*.json',
