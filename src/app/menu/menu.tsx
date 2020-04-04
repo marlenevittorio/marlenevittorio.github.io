@@ -1,17 +1,20 @@
 import * as styles from './menu.scss';
 import * as React from "react";
-import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { SELECTED_ACTION_TYPE } from "../store/actionType";
 import { TranslateComponent } from '../../shared/translate/translate';
+import {
+	Link
+} from "react-router-dom";
+import { SELECTED_ACTION_TYPE } from '../store/actionType';
+import { connect } from 'react-redux';
 
 export interface MenuProps {
 	dispatch: Dispatch;
 }
-export function Menu(props: MenuProps) {
-	function goToImages() {
+function Menu(props: MenuProps) {
+	function goToWedding() {
 		props.dispatch({
-			type: SELECTED_ACTION_TYPE.IMAGES
+			type: SELECTED_ACTION_TYPE.WEDDING
 		})
 	}
 
@@ -20,8 +23,13 @@ export function Menu(props: MenuProps) {
 		<div className={styles.link}>
             <TranslateComponent t={'menu.home'}/>
 		</div>
-		<div onClick={goToImages} className={styles.link}>
-            <TranslateComponent t={'menu.images'}/>
+		<div className={styles.link} onClick={goToWedding}>
+			<TranslateComponent t={'menu.wedding'}/>
+		</div>
+		<div className={styles.link}>
+			<Link className={styles.linkPhotos} to="/images">
+				<TranslateComponent t={'menu.images'}/>
+			</Link>
 		</div>
 		<div className={styles.line}/>
 	</div>

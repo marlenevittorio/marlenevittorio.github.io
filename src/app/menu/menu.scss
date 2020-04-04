@@ -36,4 +36,10 @@
     @include media-large {
         font-size: 18px;
     }
+
+}
+
+.linkPhotos {
+    color: $color-grey;
+    text-decoration: none;
 }
