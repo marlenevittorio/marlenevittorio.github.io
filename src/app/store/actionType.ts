@@ -1,5 +1,0 @@
-export enum SELECTED_ACTION_TYPE {
-	NONE = 'NONE',
-	IMAGES = 'IMAGES',
-	WEDDING = 'WEDDING'
-}
