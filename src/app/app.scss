@@ -1,7 +1,6 @@
 .container {
     background-image: url('./../resources/images/bg.jpg');
     background-size: cover;
-    
     @include media-large {
         padding: 100px;
     }
