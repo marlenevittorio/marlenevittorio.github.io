@@ -24,7 +24,7 @@
     "i18next": "19.3.4",
     "i18next-browser-languagedetector": "4.0.2",
     "i18next-xhr-backend": "3.2.2",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "3.0.0",
     "raw-loader": "4.0.0",
     "react": "16.13.1",
