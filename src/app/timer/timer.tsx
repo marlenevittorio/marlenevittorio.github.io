@@ -36,16 +36,38 @@ export function Timer() {
 }
 
 const timer = () => {
-	const weddingDate = new Date(WEDDING_DATE).getTime();
-	const now = new Date().getTime();
-	const difference = weddingDate > now ? weddingDate - now : now - weddingDate;
+	const weddingDate = new Date(WEDDING_DATE);
+	const now = new Date();
+
+	let years = now.getFullYear() - weddingDate.getFullYear();
+
+	let anniversaryThisYear = new Date(now.getFullYear(), weddingDate.getMonth(), weddingDate.getDate(), weddingDate.getHours(), weddingDate.getMinutes(), weddingDate.getSeconds());
+	if (now < anniversaryThisYear) {
+		years--;
+	}
+
+	let pastAnniversary = new Date(weddingDate);
+	pastAnniversary.setFullYear(weddingDate.getFullYear() + years);
+
+	let remainingMilliseconds = now.getTime() - pastAnniversary.getTime();
+
+	let days = Math.floor(remainingMilliseconds / (1000 * SECONDS_IN_A_MINUTE * MINUTES_IN_A_HOUR * 24));
+	remainingMilliseconds -= days * (MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE * MINUTES_IN_A_HOUR * HOURS_IN_A_DAY);
+
+	let hours = Math.floor(remainingMilliseconds / (1000 * SECONDS_IN_A_MINUTE * MINUTES_IN_A_HOUR));
+	remainingMilliseconds -= hours * (MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE * 60);
+
+	let minutes = Math.floor(remainingMilliseconds / (1000 * 60));
+	remainingMilliseconds -= minutes * (MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE);
+
+	let seconds = Math.floor(remainingMilliseconds / MILLISECONDS_IN_A_SECOND);
 
 	return {
-		years: getTotalYears(difference),
-		days: getDays(difference),
-		hours: getHours(difference),
-		minutes: getMinutes(difference),
-		seconds: getSeconds(difference),
+		years,
+		days,
+		hours,
+		minutes,
+		seconds
 	}
 };
 
@@ -53,46 +75,4 @@ const MILLISECONDS_IN_A_SECOND = 1000
 const SECONDS_IN_A_MINUTE = 60
 const MINUTES_IN_A_HOUR = 60
 const HOURS_IN_A_DAY = 24
-const DAYS_IN_A_YEAR = 365
-const getTotalSeconds = (milliseconds: number) => Math.floor(milliseconds / MILLISECONDS_IN_A_SECOND);
 
-const getSeconds = (milliseconds: number) => {
-	const totalSeconds = getTotalSeconds(milliseconds);
-	return totalSeconds % SECONDS_IN_A_MINUTE
-};
-
-const getTotalMinutes = (milliseconds: number) => {
-	const totalSeconds = getTotalSeconds(milliseconds);
-
-	return Math.floor(totalSeconds / SECONDS_IN_A_MINUTE)
-};
-
-const getMinutes = (milliseconds: number) => {
-	const totalMinutes = getTotalMinutes(milliseconds);
-	return totalMinutes % MINUTES_IN_A_HOUR
-};
-
-const getTotalHours = (milliseconds: number) => {
-	const totalMinutes = getTotalMinutes(milliseconds);
-	return Math.floor(totalMinutes / MINUTES_IN_A_HOUR)
-};
-
-const getHours = (milliseconds: number) => {
-	const totalHours = getTotalHours(milliseconds);
-	return totalHours % HOURS_IN_A_DAY
-};
-
-const getTotalDays = (milliseconds: number) => {
-	const totalHours = getTotalHours(milliseconds);
-	return Math.floor(totalHours / HOURS_IN_A_DAY);
-};
-
-const getDays = (timer: number) => {
-	const totalDays = getTotalDays(timer);
-	return Math.floor(totalDays % DAYS_IN_A_YEAR);
-};
-
-const getTotalYears = (time: number) => {
-	const totalDays = getTotalDays(time);
-	return Math.floor(totalDays / DAYS_IN_A_YEAR)
-};
