@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack/webpack.development.js --inline --hot",
-    "build": "webpack --config config/webpack/webpack.production.js",
-    "test": "jest --config config/jest/jest.json",
-    "test:watch": "jest --watchAll --config config/jest/jest.json"
+    "build": "webpack --config config/webpack/webpack.production.js"
   },
   "devDependencies": {
     "@types/react": "16.9.32",
